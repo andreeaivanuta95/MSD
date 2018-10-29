@@ -25,6 +25,8 @@ public class TestDataServiceRest {
 	
 	 
 	@BeforeClass
+	
+	
 	public static void setUpBeforeClass() throws Exception {
 	}	
 	
