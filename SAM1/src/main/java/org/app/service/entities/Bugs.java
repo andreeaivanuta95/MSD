@@ -20,6 +20,9 @@ public class Bugs {
 	public Integer getIdBug() {
 		return idBug;
 		
+		
+		
+		
 	}
 	public void setIdBug(Integer idBug) {
 		this.idBug = idBug;
