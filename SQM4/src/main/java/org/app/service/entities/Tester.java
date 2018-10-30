@@ -4,14 +4,30 @@ import javax.persistence.Entity;
 
 @Entity
 public class Tester extends User{
+	
 
-	private String assignedBugs;
+	private Bugs assignedBugs;
 
-	public String getAssignedBugs() {
+	public Tester(String userName, String password, String email, String role, Bugs assignedBugs) {
+		super(userName, password, email, role);
+		this.assignedBugs = assignedBugs;
+	}
+
+	public Tester() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Tester(String userName, String password, String email, String role) {
+		super(userName, password, email, role);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Bugs getAssignedBugs() {
 		return assignedBugs;
 	}
 
-	public void setAssignedBugs(String assignedBugs) {
+	public void setAssignedBugs(Bugs assignedBugs) {
 		this.assignedBugs = assignedBugs;
 	}
 
@@ -40,12 +56,11 @@ public class Tester extends User{
 		return true;
 	}
 
-	public Tester(String userName, String password, String email, String role, String assignedBugs) {
-		super(userName, password, email, role);
-		this.assignedBugs = assignedBugs;
+	@Override
+	public String toString() {
+		return "Tester [assignedBugs=" + assignedBugs + "]";
 	}
 	
-	public Tester() {
-	super();
-	}
-	}
+
+
+}

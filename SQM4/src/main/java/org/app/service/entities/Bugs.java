@@ -1,12 +1,16 @@
 package org.app.service.entities;
 
+import static javax.persistence.CascadeType.ALL;
+
+import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
 @Entity
 public class Bugs {
-
+	
 	@Id
 	@GeneratedValue
 	private Integer idBug;
@@ -14,13 +18,31 @@ public class Bugs {
 	private String description;
 	private String priority;
 	private String status;
-	private Developer assignee;
+	private Developer asignee;
 	private Tester reporter;
-	///feature???
+	private Features fromFeature;
+	//@ManyToOne(cascade = ALL)
+	//private List<Features> feature;
+	//@ManyToMany(cascade = ALL)
+	//private List<Features> feature;
+	public Bugs(Integer idBug, String title, String description, String priority, String status, Developer asignee,
+			Tester reporter, Features fromFeature) {
+		super();
+		this.idBug = idBug;
+		this.title = title;
+		this.description = description;
+		this.priority = priority;
+		this.status = status;
+		this.asignee = asignee;
+		this.reporter = reporter;
+		this.fromFeature = fromFeature;
+	}
+	public Bugs() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getIdBug() {
 		return idBug;
-		
-		
 	}
 	public void setIdBug(Integer idBug) {
 		this.idBug = idBug;
@@ -49,11 +71,11 @@ public class Bugs {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Developer getAssignee() {
-		return assignee;
+	public Developer getAsignee() {
+		return asignee;
 	}
-	public void setAssignee(Developer assignee) {
-		this.assignee = assignee;
+	public void setAsignee(Developer asignee) {
+		this.asignee = asignee;
 	}
 	public Tester getReporter() {
 		return reporter;
@@ -61,12 +83,19 @@ public class Bugs {
 	public void setReporter(Tester reporter) {
 		this.reporter = reporter;
 	}
+	public Features getFromFeature() {
+		return fromFeature;
+	}
+	public void setFromFeature(Features fromFeature) {
+		this.fromFeature = fromFeature;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((assignee == null) ? 0 : assignee.hashCode());
+		result = prime * result + ((asignee == null) ? 0 : asignee.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((fromFeature == null) ? 0 : fromFeature.hashCode());
 		result = prime * result + ((idBug == null) ? 0 : idBug.hashCode());
 		result = prime * result + ((priority == null) ? 0 : priority.hashCode());
 		result = prime * result + ((reporter == null) ? 0 : reporter.hashCode());
@@ -83,15 +112,20 @@ public class Bugs {
 		if (getClass() != obj.getClass())
 			return false;
 		Bugs other = (Bugs) obj;
-		if (assignee == null) {
-			if (other.assignee != null)
+		if (asignee == null) {
+			if (other.asignee != null)
 				return false;
-		} else if (!assignee.equals(other.assignee))
+		} else if (!asignee.equals(other.asignee))
 			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
+			return false;
+		if (fromFeature == null) {
+			if (other.fromFeature != null)
+				return false;
+		} else if (!fromFeature.equals(other.fromFeature))
 			return false;
 		if (idBug == null) {
 			if (other.idBug != null)
@@ -120,25 +154,12 @@ public class Bugs {
 			return false;
 		return true;
 	}
-	public Bugs(Integer idBug, String title, String description, String priority, String status, Developer assignee,
-			Tester reporter) {
-		super();
-		this.idBug = idBug;
-		this.title = title;
-		this.description = description;
-		this.priority = priority;
-		this.status = status;
-		this.assignee = assignee;
-		this.reporter = reporter;
-	}
 	@Override
 	public String toString() {
 		return "Bugs [idBug=" + idBug + ", title=" + title + ", description=" + description + ", priority=" + priority
-				+ ", status=" + status + ", assignee=" + assignee + ", reporter=" + reporter + "]";
+				+ ", status=" + status + ", asignee=" + asignee + ", reporter=" + reporter + ", fromFeature="
+				+ fromFeature + "]";
 	}
 	
-	public Bugs() {
-		super();
-	}
 	
 }

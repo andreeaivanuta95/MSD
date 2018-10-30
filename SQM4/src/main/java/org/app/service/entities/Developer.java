@@ -1,15 +1,32 @@
 package org.app.service.entities;
+
 import javax.persistence.Entity;
 
 @Entity
-public class Developer extends User {
-	private String assignedBugs;
+public class Developer extends User{
+	
+	private Bugs assignedBugs;
 
-	public String getAssignedBugs() {
+	public Developer(String userName, String password, String email, String role, Bugs assignedBugs) {
+		super(userName, password, email, role);
+		this.assignedBugs = assignedBugs;
+	}
+
+	public Developer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Developer(String userName, String password, String email, String role) {
+		super(userName, password, email, role);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Bugs getAssignedBugs() {
 		return assignedBugs;
 	}
-	
-	public void setAssignedBugs(String assignedBugs) {
+
+	public void setAssignedBugs(Bugs assignedBugs) {
 		this.assignedBugs = assignedBugs;
 	}
 
@@ -42,15 +59,6 @@ public class Developer extends User {
 	public String toString() {
 		return "Developer [assignedBugs=" + assignedBugs + "]";
 	}
-
 	
-	
-	public Developer(String userName, String password, String email, String role, String assignedBugs) {
-		super(userName, password, email, role);
-		this.assignedBugs = assignedBugs;
-	}
 
-	public Developer() {
-		super();
-	}
 }
