@@ -1,20 +1,17 @@
 package org.app.service.entities;
-
 import javax.persistence.Entity;
 
 @Entity
-public class ProjectManager extends User{
+public class ProjectManager extends User {
 	
-	public ProjectManager() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	private String comment;
 
-	@Override
-	public String toString() {
-		return "ProjectManager [comment=" + comment + "]";
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	@Override
@@ -41,18 +38,18 @@ public class ProjectManager extends User{
 			return false;
 		return true;
 	}
-
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
+	
+	@Override
+	public String toString() {
+		return "ProjectManager [comment=" + comment + "]";
 	}
 
 	public ProjectManager(String userName, String password, String email, String role, String comment) {
 		super(userName, password, email, role);
 		this.comment = comment;
 	}
-
+	
+	public ProjectManager() {
+	super();
+	}
 }

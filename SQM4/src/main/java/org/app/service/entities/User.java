@@ -1,21 +1,60 @@
 package org.app.service.entities;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class User {
-	
+
 	@Id
 	private String userName;
 	private String password;
 	private String email;
 	private String role;
-	
-	@Override
-	public String toString() {
-		return "User [userName=" + userName + ", password=" + password + ", email=" + email + ", role=" + role + "]";
+
+	public String getUserName() {
+		return userName;
 	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public User(String userName, String password, String email, String role) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+		this.role = role;
+	}
+	
+	public User() {
+		super();
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -26,6 +65,7 @@ public class User {
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -57,40 +97,11 @@ public class User {
 			return false;
 		return true;
 	}
-	public User(String userName, String password, String email, String role) {
-		super();
-		this.userName = userName;
-		this.password = password;
-		this.email = email;
-		this.role = role;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	public User() {
-		// TODO Auto-generated constructor stub
-		super();
-	}
 
+	@Override
+	public String toString() {
+		return "User [userName=" + userName + ", password=" + password + ", email=" + email + ", role=" + role + "]";
+	}
+	
+	
 }
