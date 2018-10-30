@@ -19,6 +19,7 @@ public class Bugs {
 	///feature???
 	public Integer getIdBug() {
 		return idBug;
+		
 	}
 	public void setIdBug(Integer idBug) {
 		this.idBug = idBug;
