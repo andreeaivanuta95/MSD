@@ -38,7 +38,7 @@ public class ProjectManager extends User {
 			return false;
 		return true;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "ProjectManager [comment=" + comment + "]";
